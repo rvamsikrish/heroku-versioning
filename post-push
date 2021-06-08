@@ -25,13 +25,13 @@ url="$2"
 z40=0000000000000000000000000000000000000000
 
 while read local_ref local_sha remote_ref remote_sha
-app_name=`ruby .git/hooks/.pre_push.rb $url app_name`
+app_name=`ruby .git/hooks/.post_push.rb $url app_name`
 if [ -z "${app_name// }" ]
 then
       echo "-------------Normal Push-------------"
 else
 	  `pwd`
-	  version_number=`ruby .git/hooks/.pre_push.rb $url version_number`
+	  version_number=`ruby .git/hooks/.post_push.rb $url version_number`
 	  echo "$app_name"
 	  echo "$version_number"
 	  heroku config:set PWA_VERSION_LATEST="$version_number" --app $app_name

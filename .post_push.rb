@@ -16,7 +16,6 @@ class PrePush
     version_num = `git rev-list HEAD --count`
     commit_hash = `git rev-parse Head`
     date_val = `git show -s --format=%ci #{commit_hash}`
-    byebug
     "#{date_val.split(' ')[0]}.#{version_num}"
   end
 end

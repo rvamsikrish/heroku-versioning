@@ -25,7 +25,8 @@ url="$2"
 z40=0000000000000000000000000000000000000000
 
 while read local_ref local_sha remote_ref remote_sha
-app_name=`ruby .git/hooks/.pre_push.rb $url app_name`
+do
+	app_name=`ruby .git/hooks/.pre_push.rb $url app_name`
 	if [ -z "${app_name// }" ]
 	then
 		echo "-------------Normal Push-------------"

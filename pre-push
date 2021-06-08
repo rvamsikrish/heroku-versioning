@@ -38,4 +38,5 @@ do
 		heroku config:set PWA_VERSION_LATEST="$version_number" --app $app_name
 	fi
 done
+
 exit 0
